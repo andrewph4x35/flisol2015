@@ -1,17 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<div class="banner"></div>
-	<div clss="nav">
-	<ul><li><
-	</div>
-	<div class="conteudo"></div>
-	<div class="rodape"></div>
-</body>
-</html>
+<?php require("vendor/autoload.php");
+
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation\Loader\ArrayLoader;
+$translator = new Translator(null);
+
+$translator->addLoader('array', new ArrayLoader());
+
+$translator->addResource('array',
+    array('Hello World' => 'Olá mundo'), 'pt'
+);
+
+$translator->addResource('array',
+    array('Hello World' => 'Hola Mundo'), 'es'
+);
+
+$language = isset($argv[1]) ? $argv[1] : null;
+$translator->setLocale($language);
+
+echo $translator->trans('Hello World');
+
+?>

@@ -1,0 +1,13 @@
+{
+    "name": "ubuntu/flisol2015",
+    "authors": [
+        {
+            "name": "andre",
+            "email": "jsjshsghdg@hotmail.com"
+        }
+    ],
+    "require": {
+    	"symfony/translation": "2.6.6"
+    }
+}
+ 
